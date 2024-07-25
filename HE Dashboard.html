@@ -11,37 +11,40 @@
             margin: 0;
             padding: 20px;
         }
-
-        .title-background {
-            position: relative;
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
             padding: 20px;
-            width: calc(100% + 40px);
-            margin-left: -20px;
-            margin-right: -20px;
-            margin-bottom: 25px;
-            background-color: #01578C;
-            color: white;
+            background-color: #ffffff;
             border-radius: 10px;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center; /* Vertically center the content */
-            justify-content: center; /* Horizontally center the content */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
-        .title-background img {
-            height: 60px; /* Adjust the height as needed */
-            width: auto; /* Maintain aspect ratio */
-            margin-right: 20px; /* Space between image and text */
-            border-radius: 10px; /* Optional: Match the border radius */
+        .title-bar {
+            background-color: #01578C; /* Background color of the title bar */
+            color: white; /* Text color */
+            padding: 25px; /* Padding around the title */
+            border-radius: 10px;
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+            position: relative; /* To position the image */
+            margin-bottom: 30px; /* Space below the title bar */
+            overflow: hidden; /* Ensure image doesn't overflow */
+            text-align: left; /* Align text to the left */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            margin-top: -20px; /* Space under the footer background */
         }
-
-        .title-background h1 {
-            margin: 0;
-            font-size: 24px;
-            flex-grow: 1; /* Allow h1 to take remaining space */
-            text-align: center; /* Center the text within h1 */
+        .title-bar img {
+            width: 100px; /* Adjust width of the image */
+            height: 100px; /* Maintain aspect ratio */
+            margin: -30px; /* Remove margin around the image */
         }
-
+        .title-bar h1 {
+            margin: 0; /* Remove default margin */
+            margin-left: 400px; /* Move text to the right of the image by 250px */
+            flex: 1; /* Allow heading to take remaining space */
+        }
         .folders-container {
             display: flex;
             justify-content: center;
@@ -67,13 +70,6 @@
             height: 100px;
             border-radius: 20px;
         }
-
-        .footer-bar img {
-            height: 40px; /* Adjust the height of the image */
-            width: auto; /* Maintain aspect ratio */
-            vertical-align: middle; /* Align image vertically with text */
-            margin: 0px; /* Adjust margin around the image if needed */
-        }
         .folder h2 {
             margin: 10px 0 20px;
         }
@@ -96,63 +92,65 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .title-background {
-                padding: 15px;
-                width: calc(100% + 30px);
-                margin-left: -15px;
-                margin-right: -15px;
-                margin-bottom: 25px;
+            .folder {
+                width: 100%; /* Make folders full width on smaller screens */
+            }
+            .title-bar h1 {
+                margin-left: 120px; /* Adjust text margin for smaller screens */
             }
         }
 
         @media (max-width: 480px) {
-            .title-background {
-                padding: 10px;
-                width: calc(100% + 20px);
-                margin-left: -10px;
-                margin-right: -10px;
-                margin-bottom: 20px;
-            }
             .folder {
-                width: 100%;
+                width: 100%; /* Ensure full width on very small screens */
+            }
+            .title-bar {
+                flex-direction: column; /* Stack items vertically on very small screens */
+                align-items: flex-start; /* Align items to the start */
+                padding: 20px; /* Adjust padding */
+            }
+            .title-bar h1 {
+                margin-left: 0; /* Remove left margin for text */
+                margin-top: 10px; /* Add top margin for spacing */
+                text-align: center; /* Center align text */
+                width: 100%; /* Full width text */
+            }
+            .title-bar img {
+                width: 80px; /* Adjust image size */
             }
         }
 
         .footer-bar {
-            background-color: #01578C;
-            color: white;
-            padding: 0px;
+            background-color: #01578C; /* Footer background color */
+            color: white; /* Adjust text color for contrast */
+            padding: 10px; /* Adjust padding */
             border-radius: 10px;
             display: inline-block;
-            width: calc(100% + 40px);
-            max-width: calc(100% + 40px);
-            margin-left: -20px;
-            margin-right: -20px;
-            text-align: right;
-            box-sizing: border-box;
-            margin-bottom: 0px;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            text-align: right; /* right-align text within the footer background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+            margin-bottom: -30px; /* Space under the footer background */
+        }
+        .footer-bar img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: -3px; /* Adjust margin around the image if needed */
         }
     </style>
-    <script>
-        function toggleList(listId) {
-            var list = document.getElementById(listId);
-            if (list.style.display === "none" || list.style.display === "") {
-                list.style.display = "block";
-            } else {
-                list.style.display = "none";
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="dashboard">
-        <div class="title-background">
+        <div class="title-bar">
             <img src="TP.png" alt="Title Bar Image">
-            <h1>IPTV Head-End Dashboard</h1>
+            <h1>IPTV Dashboard</h1>
         </div>
         <div class="folders-container">
-   <img src="Emaar.png" alt="UTC Folder Icon">
-            <div class="folder" onclick="toggleList('headEndListUTC')">
+           <div class="folder" onclick="toggleList('headEndListUTC')">
+                <img src="Emaar.png" alt="UTC Folder Icon">
                 <h2>UTC</h2>
                 <ul id="headEndListUTC">
     <li><a href="http://10.185.20.151" target="_blank">Head-End 1</a></li>
