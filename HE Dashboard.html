@@ -28,6 +28,8 @@
             color: white; /* Adjust text color for contrast */
             padding: 20px; /* Adjust padding */
             border-radius: 10px;
+            position: relative; /* Position relative to place the image absolutely */
+            overflow: hidden; /* Prevent overflow */
             display: inline-block;
             width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
             max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
@@ -36,8 +38,6 @@
             text-align: center; /* Center-align text within the title background */
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
             margin-bottom: 30px; /* Space under the title background */
-            position: relative; /* Position relative to place the image absolutely */
-            overflow: hidden; /* Prevent overflow */
         }
 
         .title-background img {
@@ -48,8 +48,8 @@
             height: auto; /* Maintain aspect ratio */
             z-index: -1; /* Place image behind text */
             border-radius: 10px; /* Optional: Match the border radius */
+            opacity: 0.3; /* Optional: Adjust image opacity */
         }
-
 
         .title-background h1 {
             position: relative; /* Ensure the heading text is positioned above the image */
@@ -82,30 +82,25 @@
             border-radius: 20px;
         }
 
+        .footer-bar {
+            background-color: #01578C; /* Title background color */
+            color: white; /* Adjust text color for contrast */
+            padding: 0px; /* Adjust padding */
+            border-radius: 10px;
+            display: inline-block;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            text-align: right; /* right-align text within the title background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+            margin-bottom: 0px; /* Space under the title background */
+        }
         .footer-bar img {
             height: 40px; /* Adjust the height of the image */
             width: auto; /* Maintain aspect ratio */
             vertical-align: middle; /* Align image vertically with text */
             margin: 5px; /* Adjust margin around the image if needed */
-        }
-        .folder h2 {
-            margin: 10px 0 20px;
-        }
-        .folder ul {
-            list-style-type: none;
-            padding: 0;
-            display: none;
-        }
-        .folder li {
-            margin: 10px 0;
-        }
-        .folder a {
-            text-decoration: none;
-            color: #007bff;
-            transition: color 0.3s;
-        }
-        .folder a:hover {
-            color: #0056b3;
         }
 
         /* Responsive Design */
@@ -131,32 +126,7 @@
                 width: 100%; /* Make folders full width on very small screens */
             }
         }
-
-        .footer-bar {
-            background-color: #01578C; /* Title background color */
-            color: white; /* Adjust text color for contrast */
-            padding: 0px; /* Adjust padding */
-            border-radius: 10px;
-            display: inline-block;
-            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
-            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
-            margin-left: -20px; /* Shift background to the left to remove right space */
-            margin-right: -20px; /* Optionally shift background to the right as needed */
-            text-align: right; /* right-align text within the title background */
-            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-            margin-bottom: 0px; /* Space under the title background */
-        }
     </style>
-    <script>
-        function toggleList(listId) {
-            var list = document.getElementById(listId);
-            if (list.style.display === "none" || list.style.display === "") {
-                list.style.display = "block";
-            } else {
-                list.style.display = "none";
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="dashboard">
@@ -165,11 +135,11 @@
             <h1>IPTV Head-End Dashboard</h1>
         </div>
         <div class="folders-container">
-            
-  <div class="footer-bar">
-        <img src="Orange.png" alt="Orange Folder Icon">
+            <!-- Your folder elements here -->
+        </div>
+        <div class="footer-bar">
+            <img src="Orange.png" alt="Orange Folder Icon">
+        </div>
     </div>
 </body>
 </html>
-
-
