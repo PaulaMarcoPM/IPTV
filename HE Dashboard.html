@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title Example</title>
+    <title>IPTV Head-End Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,9 +11,18 @@
             margin: 0;
             padding: 20px;
         }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
         .title-bar {
-            background-color: #01578C; /* Background color of the title bar */
-            color: white; /* Text color */
+            background-color: #01578C; /* Title bar background color */
+            color: white; /* Title text color */
             padding: 20px; /* Padding around the title */
             border-radius: 10px;
             display: flex; /* Use flexbox for layout */
@@ -21,7 +30,6 @@
             position: relative; /* To position the image */
             margin-bottom: 30px; /* Space below the title bar */
             overflow: hidden; /* Ensure image doesn't overflow */
-            text-align: left; /* Align text to the left */
         }
         .title-bar img {
             width: 100px; /* Adjust width of the image */
@@ -31,14 +39,101 @@
         .title-bar h1 {
             margin: 0; /* Remove default margin */
             flex: 1; /* Allow heading to take remaining space */
-            margin-left: -20px; /* Move text further left if needed */
+             margin-left: -10px; /* Move text further left if needed */
+            
+        }
+        .folders-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .folder {
+            width: 250px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #e0e7ff;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .folder:hover {
+            background-color: #d1d8ff;
+            transform: translateY(-5px);
+        }
+        .folder img {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+        }
+        .folder h2 {
+            margin: 10px 0 20px;
+        }
+        .folder ul {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+        .folder li {
+            margin: 10px 0;
+        }
+        .folder a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .folder a:hover {
+            color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .folder {
+                width: 100%; /* Make folders full width on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .folder {
+                width: 100%; /* Ensure full width on very small screens */
+            }
+        }
+
+        .footer-bar {
+            background-color: #01578C; /* Footer background color */
+            color: white; /* Adjust text color for contrast */
+            padding: 10px; /* Adjust padding */
+            border-radius: 10px;
+            display: inline-block;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            text-align: right; /* right-align text within the footer background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+            margin-bottom: 0px; /* Space under the footer background */
+        }
+        .footer-bar img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: 5px; /* Adjust margin around the image if needed */
         }
     </style>
 </head>
 <body>
-    <div class="title-bar">
-        <img src="TP.png" alt="Title Bar Image">
-        <h1>Letil Bet</h1>
+    <div class="dashboard">
+        <div class="title-bar">
+            <img src="TP.png" alt="Title Bar Image">
+            <h1>IPTV Head-End Dashboard</h1>
+        </div>
+        <div class="folders-container">
+            <!-- Your folder elements here -->
+        </div>
+        <div class="footer-bar">
+            <img src="Orange.png" alt="Orange Folder Icon">
+        </div>
     </div>
 </body>
 </html>
