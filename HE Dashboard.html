@@ -21,16 +21,18 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .title-bar {
-            background-color: #01578C; /* Background color of the title bar */
-            color: white; /* Text color */
-            padding: -20px; /* Padding around the title */
+            background-color: #01578C; /* Footer background color */
+            color: white; /* Adjust text color for contrast */
+            padding: 10px; /* Adjust padding */
             border-radius: 10px;
-            display: flex; /* Use flexbox for layout */
-            align-items: center; /* Center items vertically */
-            position: relative; /* To position the image */
-            margin-bottom: 30px; /* Space below the title bar */
-            overflow: hidden; /* Ensure image doesn't overflow */
-            text-align: left; /* Align text to the left */
+            display: inline-block;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            text-align: right; /* right-align text within the footer background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+            margin-bottom: -20px; /* Space under the footer background */
         }
         .title-bar img {
             width: 100px; /* Adjust width of the image */
