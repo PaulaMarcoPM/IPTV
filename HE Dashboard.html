@@ -27,10 +27,9 @@
             border-radius: 10px;
             display: flex; /* Use flexbox for layout */
             align-items: center; /* Center items vertically */
-            justify-content: center; /* Center items horizontally */
+            position: relative; /* To position the image */
             margin-bottom: 30px; /* Space below the title bar */
             overflow: hidden; /* Ensure image doesn't overflow */
-            position: relative;
         }
         .title-bar img {
             width: 100px; /* Adjust width of the image */
@@ -39,6 +38,7 @@
         }
         .title-bar h1 {
             margin: 0; /* Remove default margin */
+            flex: 1; /* Allow heading to take remaining space */
         }
         .folders-container {
             display: flex;
