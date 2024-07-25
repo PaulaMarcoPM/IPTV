@@ -19,17 +19,21 @@
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* Ensure relative positioning for alignment adjustments */
+            overflow: hidden; /* Prevent overflow */
         }
         .title-background {
             background-color: #01578C; /* Title background color */
             color: white; /* Adjust text color for contrast */
-            padding: 20px; /* Increased padding for wider background */
+            padding: 20px; /* Adjust padding */
             border-radius: 5px;
             display: inline-block;
-            width: 100%; /* Full width of the container */
-            max-width: 1000px; /* Optional: constrain the max-width */
-            margin-bottom: 20px;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
             text-align: center; /* Center-align text within the title background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
         }
         .folders-container {
             display: flex;
@@ -79,15 +83,19 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .title-background {
-                padding: 10px; /* Adjust padding for smaller screens */
-                max-width: 100%; /* Allow title to use more screen width on mobile */
+                padding: 15px; /* Adjust padding for smaller screens */
+                width: calc(100% + 30px); /* Adjust width for smaller screens */
+                margin-left: -15px; /* Adjust left margin for smaller screens */
+                margin-right: -15px; /* Adjust right margin for smaller screens */
             }
         }
 
         @media (max-width: 480px) {
             .title-background {
                 padding: 10px; /* Further reduce padding for very small screens */
-                max-width: 100%; /* Ensure title background uses full width */
+                width: calc(100% + 20px); /* Adjust width for very small screens */
+                margin-left: -10px; /* Adjust left margin for very small screens */
+                margin-right: -10px; /* Adjust right margin for very small screens */
             }
             .folder {
                 width: 100%; /* Make folders full width on very small screens */
