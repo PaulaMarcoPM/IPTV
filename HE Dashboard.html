@@ -16,10 +16,17 @@
             margin: 0 auto;
             text-align: center;
             padding: 20px;
-            background-color: #007bff; /* Change to desired color */
+            background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .title-background {
+            background-color: #007bff; /* Change to desired color */
             color: white; /* Adjust text color for contrast */
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
         }
         .folders-container {
             display: flex;
@@ -79,7 +86,9 @@
 </head>
 <body>
     <div class="dashboard">
-        <h1>IPTV Head-End Dashboard</h1>
+        <div class="title-background">
+            <h1>IPTV Head-End Dashboard</h1>
+        </div>
         <div class="folders-container">
             <div class="folder" onclick="toggleList('headEndListUTC')">
                 <img src="Emaar.png" alt="UTC Folder Icon">
