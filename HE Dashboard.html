@@ -11,50 +11,28 @@
             margin: 0;
             padding: 20px;
         }
-/*         .dashboard {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
+
+       .title-bar {
+            background-color: #01578C; /* Title background color */
+            color: white; /* Adjust text color for contrast */
+            padding: 0px; /* Adjust padding */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative; /* Ensure relative positioning for alignment adjustments */
-            overflow: hidden; /* Prevent overflow */
-            z-index: 0; /* Ensure it is beneath the title background */
-        } */
-        .title-background {
-    background-color: #01578C; /* Title background color */
-    color: white; /* Adjust text color for contrast */
-    padding: 20px; /* Adjust padding */
-    border-radius: 10px;
-    display: inline-block;
-    width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
-    max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
-    margin-left: -20px; /* Shift background to the left to remove right space */
-    margin-right: -20px; /* Optionally shift background to the right as needed */
-    margin-top: 0; /* Remove space at the top */
-    text-align: center; /* Center-align text within the title background */
-    box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-    margin-bottom: 30px; /* Space under the title background */
-    position: relative; /* Position relative to place the image absolutely */
-    overflow: hidden; /* Prevent overflow */
-        }
-        .title-background img {
-            position: absolute; /* Position the image absolutely */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: auto; /* Maintain natural width of the image */
-            height: 100%; /* Make image height match the title background */
-            z-index: -1; /* Place image behind text */
-            border-radius: 10px; /* Optional: Match the border radius */
+            display: inline-block;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            text-align: right; /* right-align text within the title background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+            margin-top: 0px; /* Space under the title background */
         }
 
-        .title-background h1 {
-            position: relative; /* Ensure the heading text is positioned above the image */
-            z-index: 1; /* Ensure text is above the image */
-        }
-
+        .title-bar img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: 0px; /* Adjust margin around the image if needed */
+    
         .folders-container {
             display: flex;
             justify-content: center;
