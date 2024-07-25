@@ -21,6 +21,7 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             position: relative; /* Ensure relative positioning for alignment adjustments */
             overflow: hidden; /* Prevent overflow */
+            z-index: 0; /* Ensure it is beneath the title background */
         }
         .title-background {
             background-color: #01578C; /* Title background color */
@@ -36,6 +37,7 @@
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
             margin-bottom: 30px; /* Space under the title background */
             position: relative; /* Position relative to place the image absolutely */
+            z-index: 1; /* Ensure it appears on top of other content */
         }
 
         .title-background img {
