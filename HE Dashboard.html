@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,32 +20,42 @@
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* Ensure relative positioning for alignment adjustments */
+            overflow: hidden; /* Prevent overflow */
+            z-index: 0; /* Ensure it is beneath the title background */
         }
-        .title-bar {
-            background-color: #01578C; /* Background color of the title bar */
-            color: white; /* Text color */
-            padding: 25px; /* Padding around the title */
-            border-radius: 10px;
-            display: flex; /* Use flexbox for layout */
-            align-items: center; /* Center items vertically */
-            position: relative; /* To position the image */
-            margin-bottom: 30px; /* Space below the title bar */
-            overflow: hidden; /* Ensure image doesn't overflow */
-            text-align: left; /* Align text to the left */
-            margin-left: -20px; /* Shift background to the left to remove right space */
-            margin-right: -20px; /* Optionally shift background to the right as needed */
-            margin-top: -20px; /* Space under the footer background */
+        .title-background {
+    background-color: #01578C; /* Title background color */
+    color: white; /* Adjust text color for contrast */
+    padding: 20px; /* Adjust padding */
+    border-radius: 10px;
+    display: inline-block;
+    width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+    max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+    margin-left: -20px; /* Shift background to the left to remove right space */
+    margin-right: -20px; /* Optionally shift background to the right as needed */
+    margin-top: 0; /* Remove space at the top */
+    text-align: center; /* Center-align text within the title background */
+    box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+    margin-bottom: 30px; /* Space under the title background */
+    position: relative; /* Position relative to place the image absolutely */
+    overflow: hidden; /* Prevent overflow */
         }
-        .title-bar img {
-            width: 100px; /* Adjust width of the image */
-            height: 100px; /* Maintain aspect ratio */
-            margin: -30px; /* Remove margin around the image */
+        .title-background img {
+            position: absolute; /* Position the image absolutely */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: auto; /* Maintain natural width of the image */
+            height: 100%; /* Make image height match the title background */
+            z-index: -1; /* Place image behind text */
+            border-radius: 10px; /* Optional: Match the border radius */
         }
-        .title-bar h1 {
-            margin: 0; /* Remove default margin */
-            margin-left: 400px; /* Move text to the right of the image by 250px */
-            flex: 1; /* Allow heading to take remaining space */
+
+        .title-background h1 {
+            position: relative; /* Ensure the heading text is positioned above the image */
+            z-index: 1; /* Ensure text is above the image */
         }
+
         .folders-container {
             display: flex;
             justify-content: center;
@@ -70,6 +81,13 @@
             height: 100px;
             border-radius: 20px;
         }
+
+        .footer-bar img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: 5px; /* Adjust margin around the image if needed */
+        }
         .folder h2 {
             margin: 10px 0 20px;
         }
@@ -92,64 +110,62 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .folder {
-                width: 100%; /* Make folders full width on smaller screens */
-            }
-            .title-bar h1 {
-                margin-left: 120px; /* Adjust text margin for smaller screens */
+            .title-background {
+                padding: 15px; /* Adjust padding for smaller screens */
+                width: calc(100% + 30px); /* Adjust width for smaller screens */
+                margin-left: -15px; /* Adjust left margin for smaller screens */
+                margin-right: -15px; /* Adjust right margin for smaller screens */
+                margin-bottom: 25px; /* Adjust space under the title background for smaller screens */
             }
         }
 
         @media (max-width: 480px) {
+            .title-background {
+                padding: 10px; /* Further reduce padding for very small screens */
+                width: calc(100% + 20px); /* Adjust width for very small screens */
+                margin-left: -10px; /* Adjust left margin for very small screens */
+                margin-right: -10px; /* Adjust right margin for very small screens */
+                margin-bottom: 20px; /* Further adjust space under the title background for very small screens */
+            }
             .folder {
-                width: 100%; /* Ensure full width on very small screens */
-            }
-            .title-bar {
-                flex-direction: column; /* Stack items vertically on very small screens */
-                align-items: flex-start; /* Align items to the start */
-                padding: 20px; /* Adjust padding */
-            }
-            .title-bar h1 {
-                margin-left: 0; /* Remove left margin for text */
-                margin-top: 10px; /* Add top margin for spacing */
-                text-align: center; /* Center align text */
-                width: 100%; /* Full width text */
-            }
-            .title-bar img {
-                width: 80px; /* Adjust image size */
+                width: 100%; /* Make folders full width on very small screens */
             }
         }
 
         .footer-bar {
-            background-color: #01578C; /* Footer background color */
+            background-color: #01578C; /* Title background color */
             color: white; /* Adjust text color for contrast */
-            padding: 10px; /* Adjust padding */
+            padding: 0px; /* Adjust padding */
             border-radius: 10px;
             display: inline-block;
             width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
             max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
             margin-left: -20px; /* Shift background to the left to remove right space */
             margin-right: -20px; /* Optionally shift background to the right as needed */
-            text-align: right; /* right-align text within the footer background */
+            text-align: right; /* right-align text within the title background */
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-            margin-bottom: -30px; /* Space under the footer background */
-        }
-        .footer-bar img {
-            height: 40px; /* Adjust the height of the image */
-            width: auto; /* Maintain aspect ratio */
-            vertical-align: middle; /* Align image vertically with text */
-            margin: -3px; /* Adjust margin around the image if needed */
+            margin-bottom: -20px; /* Space under the title background */
         }
     </style>
+    <script>
+        function toggleList(listId) {
+            var list = document.getElementById(listId);
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="dashboard">
-        <div class="title-bar">
+        <div class="title-background">
             <img src="TP.png" alt="Title Bar Image">
-            <h1>IPTV Dashboard</h1>
+            <h1>IPTV Head-End Dashboard</h1>
         </div>
         <div class="folders-container">
-           <div class="folder" onclick="toggleList('headEndListUTC')">
+            <div class="folder" onclick="toggleList('headEndListUTC')">
                 <img src="Emaar.png" alt="UTC Folder Icon">
                 <h2>UTC</h2>
                 <ul id="headEndListUTC">
