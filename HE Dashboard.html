@@ -19,31 +19,42 @@
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* Ensure relative positioning for alignment adjustments */
+            overflow: hidden; /* Prevent overflow */
+            z-index: 0; /* Ensure it is beneath the title background */
         }
-        .title-bar {
-            background-color: #01578C; /* Footer background color */
+        .title-background {
+            background-color: #01578C; /* Title background color */
             color: white; /* Adjust text color for contrast */
-            padding: 10px; /* Adjust padding */
+            padding: 20px; /* Adjust padding */
             border-radius: 10px;
             display: inline-block;
             width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
             max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
             margin-left: -20px; /* Shift background to the left to remove right space */
             margin-right: -20px; /* Optionally shift background to the right as needed */
-            text-align: right; /* right-align text within the footer background */
+            text-align: center; /* Center-align text within the title background */
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-            margin-bottom: -20px; /* Space under the footer background */
+            margin-bottom: 30px; /* Space under the title background */
+            position: relative; /* Position relative to place the image absolutely */
+            overflow: hidden; /* Prevent overflow */
         }
-        .title-bar img {
-            width: 100px; /* Adjust width of the image */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 250px; /* Space between image and text */
+
+        .title-background img {
+            position: absolute; /* Position the image absolutely */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: auto; /* Maintain natural width of the image */
+            height: 100%; /* Make image height match the title background */
+            z-index: -1; /* Place image behind text */
+            border-radius: 10px; /* Optional: Match the border radius */
         }
-        .title-bar h1 {
-            margin: 0; /* Remove default margin */
-            flex: 1; /* Allow heading to take remaining space */
-            margin-left: 10px; /* Move text further left if needed */
+
+        .title-background h1 {
+            position: relative; /* Ensure the heading text is positioned above the image */
+            z-index: 1; /* Ensure text is above the image */
         }
+
         .folders-container {
             display: flex;
             justify-content: center;
@@ -69,6 +80,13 @@
             height: 100px;
             border-radius: 20px;
         }
+
+        .footer-bar img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: 5px; /* Adjust margin around the image if needed */
+        }
         .folder h2 {
             margin: 10px 0 20px;
         }
@@ -91,74 +109,396 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .title-bar {
-                flex-direction: column; /* Stack image and text vertically */
-                text-align: center; /* Center-align text on smaller screens */
-            }
-
-            .title-bar img {
-                margin-right: 0; /* Remove right margin for vertical layout */
-                margin-bottom: 10px; /* Add space between image and text */
-                width: 80px; /* Adjust image size for smaller screens */
-            }
-
-            .title-bar h1 {
-                margin-left: 0; /* Remove left margin for vertical layout */
-            }
-
-            .folder {
-                width: 100%; /* Make folders full width on smaller screens */
+            .title-background {
+                padding: 15px; /* Adjust padding for smaller screens */
+                width: calc(100% + 30px); /* Adjust width for smaller screens */
+                margin-left: -15px; /* Adjust left margin for smaller screens */
+                margin-right: -15px; /* Adjust right margin for smaller screens */
+                margin-bottom: 25px; /* Adjust space under the title background for smaller screens */
             }
         }
 
         @media (max-width: 480px) {
-            .title-bar {
-                padding: 15px; /* Adjust padding for very small screens */
+            .title-background {
+                padding: 10px; /* Further reduce padding for very small screens */
+                width: calc(100% + 20px); /* Adjust width for very small screens */
+                margin-left: -10px; /* Adjust left margin for very small screens */
+                margin-right: -10px; /* Adjust right margin for very small screens */
+                margin-bottom: 20px; /* Further adjust space under the title background for very small screens */
             }
-
-            .title-bar img {
-                width: 60px; /* Further adjust image size for very small screens */
-            }
-
             .folder {
-                width: 100%; /* Ensure full width on very small screens */
+                width: 100%; /* Make folders full width on very small screens */
             }
         }
 
         .footer-bar {
-            background-color: #01578C; /* Footer background color */
+            background-color: #01578C; /* Title background color */
             color: white; /* Adjust text color for contrast */
-            padding: 10px; /* Adjust padding */
+            padding: 0px; /* Adjust padding */
             border-radius: 10px;
             display: inline-block;
             width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
             max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
             margin-left: -20px; /* Shift background to the left to remove right space */
             margin-right: -20px; /* Optionally shift background to the right as needed */
-            text-align: right; /* right-align text within the footer background */
+            text-align: right; /* right-align text within the title background */
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-            margin-bottom: -20px; /* Space under the footer background */
-        }
-        .footer-bar img {
-            height: 40px; /* Adjust the height of the image */
-            width: auto; /* Maintain aspect ratio */
-            vertical-align: middle; /* Align image vertically with text */
-            margin: 5px; /* Adjust margin around the image if needed */
+            margin-bottom: 0px; /* Space under the title background */
         }
     </style>
+    <script>
+        function toggleList(listId) {
+            var list = document.getElementById(listId);
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="dashboard">
-        <div class="title-bar">
+        <div class="title-background">
             <img src="TP.png" alt="Title Bar Image">
             <h1>IPTV Head-End Dashboard</h1>
         </div>
         <div class="folders-container">
-            <!-- Your folder elements here -->
-        </div>
-        <div class="footer-bar">
-            <img src="Orange.png" alt="Orange Folder Icon">
-        </div>
+            <div class="folder" onclick="toggleList('headEndListUTC')">
+                <img src="Emaar.png" alt="UTC Folder Icon">
+                <h2>UTC</h2>
+                <ul id="headEndListUTC">
+    <li><a href="http://10.185.20.151" target="_blank">Head-End 1</a></li>
+    <li><a href="http://10.185.20.152" target="_blank">Head-End 2</a></li>
+    <li><a href="http://10.185.20.153" target="_blank">Head-End 3</a></li>
+    <li><a href="http://10.185.20.154" target="_blank">Head-End 4</a></li>
+    <li><a href="http://10.185.20.155" target="_blank">Head-End 5</a></li>
+    <li><a href="http://10.185.20.156" target="_blank">Encoder 5</a></li>
+    <li><a href="http://10.185.20.101" target="_blank">Receiver 1</a></li>
+    <li><a href="http://10.185.20.102" target="_blank">Receiver 2</a></li>
+    <li><a href="http://10.185.20.103" target="_blank">Receiver 3</a></li>
+    <li><a href="http://10.185.20.104" target="_blank">Receiver 4</a></li>
+    <li><a href="http://10.185.20.105" target="_blank">Receiver 5</a></li>
+    <li><a href="http://10.185.20.106" target="_blank">Receiver 6</a></li>
+    <li><a href="http://10.185.20.107" target="_blank">Receiver 7</a></li>
+    <li><a href="http://10.185.20.108" target="_blank">Receiver 8</a></li>
+    <li><a href="http://10.185.20.109" target="_blank">Receiver 9</a></li>
+    <li><a href="http://10.185.20.110" target="_blank">Receiver 10</a></li>
+    <li><a href="http://10.185.20.111" target="_blank">Receiver 11</a></li>
+    <li><a href="http://10.185.20.112" target="_blank">Receiver 12</a></li>
+    <li><a href="http://10.185.20.113" target="_blank">Receiver 13</a></li>
+    <li><a href="http://10.185.20.114" target="_blank">Receiver 14</a></li>
+    <li><a href="http://10.185.20.115" target="_blank">Receiver 15</a></li>
+    <li><a href="http://10.185.20.116" target="_blank">Receiver 16</a></li>
+    <li><a href="http://10.185.20.117" target="_blank">Receiver 17</a></li>
+    <li><a href="http://10.185.20.118" target="_blank">Receiver 18</a></li>
+    <li><a href="http://10.185.20.119" target="_blank">Receiver 19</a></li>
+    <li><a href="http://10.185.20.120" target="_blank">Receiver 20</a></li>
+    <li><a href="http://10.185.20.121" target="_blank">Receiver 21</a></li>
+    <li><a href="http://10.185.20.122" target="_blank">Receiver 22</a></li>
+    <li><a href="http://10.185.20.123" target="_blank">Receiver 23</a></li>
+    <li><a href="http://10.185.20.124" target="_blank">Receiver 24</a></li>
+    <li><a href="http://10.185.20.125" target="_blank">Receiver 25</a></li>
+    <li><a href="http://10.185.20.126" target="_blank">Receiver 26</a></li>
+    <li><a href="http://10.185.20.127" target="_blank">Receiver 27</a></li>
+    <li><a href="http://10.185.20.128" target="_blank">Receiver 28</a></li>
+    <li><a href="http://10.185.20.129" target="_blank">Receiver 29</a></li>
+    <li><a href="http://10.185.20.130" target="_blank">Receiver 30</a></li>
+    <li><a href="http://10.185.20.131" target="_blank">Receiver 31</a></li>
+    <li><a href="http://10.185.20.132" target="_blank">Receiver 32</a></li>
+    <li><a href="http://10.185.20.133" target="_blank">Receiver 33</a></li>
+    <li><a href="http://10.185.20.134" target="_blank">Receiver 34</a></li>
+    <li><a href="http://10.185.20.135" target="_blank">Receiver 35</a></li>
+    <li><a href="http://10.185.20.136" target="_blank">Receiver 36</a></li>
+    <li><a href="http://10.185.20.137" target="_blank">Receiver 37</a></li>
+    <li><a href="http://10.185.20.138" target="_blank">Receiver 38</a></li>
+    <li><a href="http://10.185.20.139" target="_blank">Receiver 39</a></li>
+    <li><a href="http://10.185.20.140" target="_blank">Receiver 40</a></li>
+
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListMivida')">
+                <img src="Emaar.png" alt="Mivida Folder Icon">
+                <h2>Mivida</h2>
+                <ul id="headEndListMivida">
+                    <li><a href="http://10.72.42.150" target="_blank">Astro1-FTA</a></li>
+                    <li><a href="http://10.72.42.211" target="_blank">Astro1-CAM</a></li>
+                    <li><a href="http://10.72.42.106" target="_blank">Astro2-FTA</a></li>
+                    <li><a href="http://10.72.42.107" target="_blank">Astro2-CAM</a></li>
+                    <li><a href="http://10.72.42.103" target="_blank">Astro3-FTA</a></li>
+                    <li><a href="http://10.72.42.104" target="_blank">Astro3-CAM</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListMarassi')">
+                <img src="Emaar.png" alt="Marassi Folder Icon">
+                <h2>Marassi</h2>
+                <ul id="headEndListMarassi">
+                    <li><a href="http://10.243.151.131" target="_blank">Astro1 FTA</a></li>
+                    <li><a href="http://10.243.151.132" target="_blank">Astro1 OSN</a></li>
+                    <li><a href="http://10.243.151.133" target="_blank">Astro2 FTA</a></li>
+                    <li><a href="http://10.243.151.134" target="_blank">Astro2 OSN</a></li>
+                    <li><a href="http://10.243.151.135" target="_blank">Astro3 FTA</a></li>
+                    <li><a href="http://10.243.151.136" target="_blank">Astro3 OSN</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListSodicEast')">
+                <img src="Sodic.png" alt="Sodic East Folder Icon">
+                <h2>Sodic East</h2>
+                <ul id="headEndListSodicEast">
+                    <li><a href="http://10.182.74.101" target="_blank">HE 101</a></li>
+                    <li><a href="http://10.182.74.103" target="_blank">HE 103</a></li>
+                    <li><a href="http://10.182.74.105" target="_blank">HE 105</a></li>
+                    <li><a href="http://10.182.74.107" target="_blank">HE 107</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListSodicVillite')">
+                <img src="Sodic.png" alt="Sodic Villite Folder Icon">
+                <h2>Sodic Villite</h2>
+                <ul id="headEndListSodicVillite">
+                    <li><a href="http://10.182.52.101" target="_blank">HE-101</a></li>
+                    <li><a href="http://10.182.52.103" target="_blank">HE-103</a></li>
+                    <li><a href="http://10.182.52.105" target="_blank">HE-105</a></li>
+                    <li><a href="http://10.182.52.107" target="_blank">HE-107</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListSodicPlaza')">
+                <img src="Sodic.png" alt="Sodic Plaza Folder Icon">
+                <h2>Sodic Plaza</h2>
+                <ul id="headEndListSodicPlaza">
+                    <li><a href="http://10.182.55.101" target="_blank">HE-101</a></li>
+                    <li><a href="http://10.182.55.103" target="_blank">HE-103</a></li>
+                    <li><a href="http://10.182.55.105" target="_blank">HE-105</a></li>
+                    <li><a href="http://10.182.55.107" target="_blank">HE-107</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndList90Avenue')">
+                <img src="90 Avenue.png" alt="90 Avenue Folder Icon">
+                <h2>90 Avenue</h2>
+                <ul id="headEndList90Avenue">
+                    <li><a href="http://10.251.163.101" target="_blank">Headend-1</a></li>
+                    <li><a href="http://10.251.163.102" target="_blank">Headend-2</a></li>
+                    <li><a href="http://10.251.163.103" target="_blank">Headend-3</a></li>
+                    <li><a href="http://10.251.163.104" target="_blank">Headend-4</a></li>
+                    <li><a href="http://10.251.163.105" target="_blank">beIN Headend-1</a></li>
+                    <li><a href="http://10.251.163.106" target="_blank">beIN Headend-2</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListLayan')">
+                <img src="Layan.png" alt="Layan Folder Icon">
+                <h2>Layan</h2>
+                <ul id="headEndListLayan">
+                    <li><a href="http://10.251.13.101" target="_blank">Headend-1</a></li>
+                    <li><a href="http://10.251.13.102" target="_blank">Headend-2</a></li>
+                    <li><a href="http://10.251.13.113" target="_blank">Encoder-1</a></li>
+                    <li><a href="http://10.251.13.114" target="_blank">Encoder-2</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListkuadiko')">
+                <img src="kuadiko.png" alt="kuadiko Folder Icon">
+                <h2>kuadiko</h2>
+                <ul id="headEndListkuadiko">
+                    <li><a href="http://10.184.125.101" target="_blank">Head-End 1</a></li>
+                    <li><a href="http://10.184.125.102" target="_blank">Head-End 2</a></li>
+                    <li><a href="http://10.184.125.103" target="_blank">Head-End 3</a></li>
+                    <li><a href="http://10.183.125.208" target="_blank">Encoder-2</a></li>
+                    <li><a href="http://10.183.125.199" target="_blank">Encoder-1</a></li>
+                </ul>
+            </div>
+            <div class="folder" onclick="toggleList('headEndListAzha')">
+                <img src="Azha.png" alt="Azha Folder Icon">
+                <h2>Azha</h2>
+                <ul id="headEndListAzha">
+                    <li><a href="http://10.221.31.101" target="_blank">Headend-1</a></li>
+                    <li><a href="http://10.221.31.102" target="_blank">Headend-2</a></li>
+                    <li><a href="http://10.221.31.103" target="_blank">Headend-3</a></li>
+                    <li><a href="http://10.222.31.59" target="_blank">Encoder-1</a></li>
+                    <li><a href="http://10.222.31.68" target="_blank">Encoder-2</a></li>
+                </ul>
+            </div>
+            <!-- Seashell Playa -->
+<div class="folder" onclick="toggleList('Seashell Playa-list')">
+    <img src="Seashell Playa.png" alt="Seashell Playa Folder Icon">
+    <h2>Seashell Playa</h2>
+    <ul id="Seashell Playa-list">
+        <li><a href="http://10.191.106.101" target="_blank">Headend-1</a></li>
+        <li><a href="http://10.191.106.102" target="_blank">Headend-2</a></li>
+        <li><a href="http://10.191.106.103" target="_blank">Encoder-1</a></li>
+        <li><a href="http://10.191.106.104" target="_blank">Encoder-2</a></li>
+    </ul>
+</div>
+
+<!-- Il-Monte-Galala -->
+<div class="folder" onclick="toggleList('il-monte-galala-list')">
+    <img src="Il-Monte-Galala.png" alt="Il-Monte-Galala Folder Icon">
+    <h2>Il-Monte-Galala</h2>
+    <ul id="il-monte-galala-list">
+        <li><a href="http://10.221.32.101" target="_blank">Head-End 1</a></li>
+        <li><a href="http://10.221.32.102" target="_blank">Head-End 2</a></li>
+    </ul>
+</div>
+
+<!-- Gouna -->
+<div class="folder" onclick="toggleList('gouna-list')">
+    <img src="Gouna.png" alt="Gouna Folder Icon">
+    <h2>Gouna</h2>
+    <ul id="gouna-list">
+        <li><a href="http://10.185.78.5" target="_blank">DCM1</a></li>
+        <li><a href="http://10.185.78.6" target="_blank">DCM2</a></li>
+        <li><a href="http://10.185.78.7" target="_blank">DCM3</a></li>
+        <li><a href="http://10.185.78.8" target="_blank">DCM4</a></li>
+        <li><a href="http://10.185.78.9" target="_blank">DCM5</a></li>
+    </ul>
+</div>
+
+<!-- MV October Park -->
+<div class="folder" onclick="toggleList('mV-october-park-list')">
+    <img src="MW.png" alt="MV Folder Icon">
+    <h2>MV October Park</h2>
+    <ul id="mV-october-park-list">
+        <li><a href="http://10.251.11.101" target="_blank">Headend-1</a></li>
+        <li><a href="http://10.251.11.102" target="_blank">Headend-2</a></li>
+        <li><a href="http://10.251.11.103" target="_blank">Headend-3</a></li>
+        <li><a href="http://10.251.11.105" target="_blank">Encoder1</a></li>
+        <li><a href="http://10.251.11.106" target="_blank">Encoder2</a></li>
+        <li><a href="http://10.251.11.108" target="_blank">Astro bein euro</a></li>
+    </ul>
+</div>
+
+<!-- MV Chillout Park -->
+<div class="folder" onclick="toggleList('mV-chillout-park-list')">
+    <img src="MW.png" alt="MV Folder Icon">
+    <h2>MV Chillout Park</h2>
+    <ul id="mV-chillout-park-list">
+        <li><a href="http://10.181.128.101" target="_blank">Headend-1</a></li>
+        <li><a href="http://10.181.128.102" target="_blank">Headend-2</a></li>
+        <li><a href="http://10.181.128.103" target="_blank">Headend-3</a></li>
+        <li><a href="http://10.181.128.104" target="_blank">Encoder1</a></li>
+        <li><a href="http://10.181.128.105" target="_blank">Encoder2</a></li>
+        <li><a href="http://10.181.128.106" target="_blank">Encoder Astro</a></li>
+    </ul>
+</div>
+
+<!-- Telal -->
+<div class="folder" onclick="toggleList('telal-list')">
+    <img src="Telal.png" alt="Telal Folder Icon">
+    <h2>Telal</h2>
+    <ul id="telal-list">
+        <li><a href="http://10.182.31.6" target="_blank">DCM1</a></li>
+        <li><a href="http://10.182.31.7" target="_blank">DCM2</a></li>
+        <li><a href="http://10.182.31.1" target="_blank">Receiver 1</a></li>
+        <li><a href="http://10.182.31.2" target="_blank">Receiver 2</a></li>
+        <li><a href="http://10.182.31.3" target="_blank">Receiver 3</a></li>
+        <li><a href="http://10.182.31.4" target="_blank">Receiver 4</a></li>
+        <li><a href="http://10.182.31.5" target="_blank">Receiver 5</a></li>
+        <li><a href="http://10.182.31.6" target="_blank">Receiver 6</a></li>
+        <li><a href="http://10.182.31.7" target="_blank">Receiver 7</a></li>
+        <li><a href="http://10.182.31.8" target="_blank">Receiver 8</a></li>
+        <li><a href="http://10.182.31.9" target="_blank">Receiver 9</a></li>
+        <li><a href="http://10.182.31.10" target="_blank">Receiver 10</a></li>
+        <li><a href="http://10.182.31.11" target="_blank">Receiver 11</a></li>
+        <li><a href="http://10.182.31.12" target="_blank">Receiver 12</a></li>
+        <li><a href="http://10.182.31.13" target="_blank">Receiver 13</a></li>
+        <li><a href="http://10.182.31.14" target="_blank">Receiver 14</a></li>
+        <li><a href="http://10.182.31.15" target="_blank">Receiver 15</a></li>
+        <li><a href="http://10.182.31.16" target="_blank">Receiver 16</a></li>
+        <li><a href="http://10.182.31.17" target="_blank">Receiver 17</a></li>
+        <li><a href="http://10.182.31.18" target="_blank">Receiver 18</a></li>
+        <li><a href="http://10.182.31.19" target="_blank">Receiver 19</a></li>
+        <li><a href="http://10.182.31.20" target="_blank">Receiver 20</a></li>
+        <li><a href="http://10.182.31.21" target="_blank">Receiver 21</a></li>
+        <li><a href="http://10.182.31.22" target="_blank">Receiver 22</a></li>
+        <li><a href="http://10.182.31.23" target="_blank">Receiver 23</a></li>
+        <li><a href="http://10.182.31.24" target="_blank">Receiver 24</a></li>
+        <li><a href="http://10.182.31.25" target="_blank">Receiver 25</a></li>
+        <li><a href="http://10.182.31.26" target="_blank">Receiver 26</a></li>
+        <li><a href="http://10.182.31.27" target="_blank">Receiver 27</a></li>
+        <li><a href="http://10.182.31.28" target="_blank">Receiver 28</a></li>
+        <li><a href="http://10.182.31.29" target="_blank">Receiver 29</a></li>
+        <li><a href="http://10.182.31.30" target="_blank">Receiver 30</a></li>
+        <li><a href="http://10.182.31.31" target="_blank">Receiver 31</a></li>
+        <li><a href="http://10.182.31.32" target="_blank">Receiver 32</a></li>
+        <li><a href="http://10.182.31.33" target="_blank">Receiver 33</a></li>
+        <li><a href="http://10.182.31.34" target="_blank">Receiver 34</a></li>
+        <li><a href="http://10.182.31.35" target="_blank">Receiver 35</a></li>
+        <li><a href="http://10.182.31.36" target="_blank">Receiver 36</a></li>
+        <li><a href="http://10.182.31.37" target="_blank">Receiver 37</a></li>
+        <li><a href="http://10.182.31.38" target="_blank">Receiver 38</a></li>
+        <li><a href="http://10.182.31.39" target="_blank">Receiver 39</a></li>
+        <li><a href="http://10.182.31.40" target="_blank">Receiver 40</a></li>
+    </ul>
+</div>
+
+<!-- Owest -->
+<div class="folder" onclick="toggleList('owest-list')">
+    <img src="Owest.png" alt="Owest Folder Icon">
+    <h2>Owest</h2>
+    <ul id="owest-list">
+        <li><a href="http://10.182.249.101" target="_blank">Headend-1-CAM</a></li>
+        <li><a href="http://10.182.249.104" target="_blank">Headend-1-FTA</a></li>
+        <li><a href="http://10.182.249.102" target="_blank">Headend-2-CAM</a></li>
+        <li><a href="http://10.182.249.105" target="_blank">Headend-2-FTA</a></li>
+        <li><a href="http://10.182.249.103" target="_blank">Headend-3-CAM</a></li>
+        <li><a href="http://10.182.249.106" target="_blank">Headend-3-FTA</a></li>
+        <li><a href="http://10.182.249.115" target="_blank">Encoder-1</a></li>
+        <li><a href="http://10.182.249.116" target="_blank">Encoder-2</a></li>
+        <li><a href="http://10.182.249.117" target="_blank">Encoder-3</a></li>
+        <li><a href="http://10.182.249.118" target="_blank">Encoder-4</a></li>
+    </ul>
+</div>
+
+<!-- Stone Park -->
+<div class="folder" onclick="toggleList('stone-park-list')">
+    <img src="StonePark.png" alt="Stone Park Icon">
+    <h2>Stone Park</h2>
+    <ul id="stone-park-list">
+        <li><a href="http://10.251.42.5" target="_blank">DCM1</a></li>
+        <li><a href="http://10.251.42.6" target="_blank">DCM2</a></li>
+        <li><a href="http://10.251.42.7" target="_blank">DCM3</a></li>
+        <li><a href="http://10.251.42.8" target="_blank">DCM4</a></li>
+        <li><a href="http://10.251.42.51" target="_blank">Antik 1</a></li>
+        <li><a href="http://10.251.42.52" target="_blank">Antik 2</a></li>
+        <li><a href="http://10.251.42.100" target="_blank">Astro-HE</a></li>
+        <li><a href="http://10.251.42.101" target="_blank">Astro-HE</a></li>
+        <li><a href="http://10.251.42.11" target="_blank">Astro Bein</a></li>
+        <li><a href="http://10.251.42.12" target="_blank">Astro2 Bein</a></li>
+    </ul>
+</div>
+
+<!-- Fouka -->
+<div class="folder" onclick="toggleList('fouka-list')">
+    <img src="Fouka.png" alt="Fouka Folder Icon">
+    <h2>Fouka</h2>
+    <ul id="fouka-list">
+        <li><a href="http://10.241.106.11" target="_blank">Encoder-1</a></li>
+        <li><a href="http://10.241.106.12" target="_blank">Encoder-2</a></li>
+    </ul>
+</div>
+ <!-- MAPPING -->
+<div class="folder" onclick="toggleList('mapping-list')">
+    <img src="MAPPING.png" alt="MAPPING Folder Icon">
+    <h2>Mapping</h2>
+    <ul id="mapping-list">
+        <li><a href="https://docs.google.com/spreadsheets/d/1P-GOI3ktBVXjUTT5GN0aCTKymq19weMz8VHRLocIcds/edit?gid=1777842317#gid=1777842317" target="_blank">TP Channel Status</a></li>
+    </ul>
+</div>
+
+<!-- Minerva -->
+<div class="folder" onclick="toggleList('Minerva-list')">
+    <img src="Minerva.PNG" alt="Minerva Folder Icon">
+    <h2>Minerva</h2>
+    <ul id="Minerva-list">
+        <li><a href="https://10.184.122.2:4446/maui/#!/home/login" target="_blank">Orange</a></li>
+        <li><a href="https://10.181.55.15:4446/maui/#!/home/login" target="_blank">Sodic Plaza</a></li>
+        <li><a href="https://10.181.55.15:4446/maui/#!/home/login" target="_blank">Sodic Villite</a></li>
+        <li><a href="https://10.181.171.100:4446/maui/#!/home/login" target="_blank">Sodic ETR</a></li>
+        <li><a href="https://10.181.48.210:4446/maui/#!/home/login" target="_blank">Sodic West</a></li>
+        <li><a href="http://10.87.20.2:8000/admin/MdAdmin.po?errorMsg=Your+session+has+timed+out+or+has+been+idle+too+long.+Please+login+again." target="_blank">Emaar</a></li>
+        <li><a href="http://10.185.20.149/dreamgallery/admin/logon.do" target="_blank">ADB</a></li>
+        
+    </ul>
+</div>
+  <div class="footer-bar">
+        <img src="Orange.png" alt="Orange Folder Icon">
     </div>
 </body>
 </html>
