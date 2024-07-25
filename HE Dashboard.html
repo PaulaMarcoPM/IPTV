@@ -30,6 +30,7 @@
             justify-content: center;
             position: relative; /* To position the image */
             margin-bottom: 30px; /* Space below the title bar */
+            overflow: hidden; /* Ensure image doesn't overflow */
         }
         .title-bar img {
             position: absolute; /* Position image absolutely */
@@ -38,6 +39,7 @@
             width: 100px; /* Adjust width of the image */
             height: auto; /* Maintain aspect ratio */
             z-index: -1; /* Place image behind text */
+            opacity: 0.5; /* Optional: Add some transparency to see text better */
         }
         .title-bar h1 {
             margin: 0; /* Remove default margin */
