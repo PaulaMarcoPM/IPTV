@@ -75,6 +75,24 @@
         .folder a:hover {
             color: #0056b3;
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title-background {
+                padding: 15px; /* Adjust padding for smaller screens */
+                max-width: 90%; /* Allow title to use more screen width on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .title-background {
+                padding: 10px; /* Further reduce padding for very small screens */
+                max-width: 100%; /* Ensure title background uses full width */
+            }
+            .folder {
+                width: 100%; /* Make folders full width on very small screens */
+            }
+        }
     </style>
     <script>
         function toggleList(listId) {
