@@ -19,27 +19,7 @@
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative; /* Ensure relative positioning for alignment adjustments */
-            overflow: hidden; /* Prevent overflow */
-            z-index: 0; /* Ensure it is beneath the title background */
-    
-
-        .title-background img {
-            position: absolute; /* Position the image absolutely */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: 100%; /* Make image full width */
-            height: auto; /* Maintain aspect ratio */
-            z-index: -1; /* Place image behind text */
-            border-radius: 10px; /* Optional: Match the border radius */
-            opacity: 0.3; /* Optional: Adjust image opacity */
         }
-
-        .title-background h1 {
-            position: relative; /* Ensure the heading text is positioned above the image */
-            z-index: 1; /* Ensure text is above the image */
-        }
-
         .folders-container {
             display: flex;
             justify-content: center;
@@ -65,11 +45,43 @@
             height: 100px;
             border-radius: 20px;
         }
+        .folder h2 {
+            margin: 10px 0 20px;
+        }
+        .folder ul {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+        .folder li {
+            margin: 10px 0;
+        }
+        .folder a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .folder a:hover {
+            color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .folder {
+                width: 100%; /* Make folders full width on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .folder {
+                width: 100%; /* Ensure full width on very small screens */
+            }
+        }
 
         .footer-bar {
-            background-color: #01578C; /* Title background color */
+            background-color: #01578C; /* Footer background color */
             color: white; /* Adjust text color for contrast */
-            padding: 0px; /* Adjust padding */
+            padding: 10px; /* Adjust padding */
             border-radius: 10px;
             display: inline-block;
             width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
@@ -78,7 +90,7 @@
             margin-right: -20px; /* Optionally shift background to the right as needed */
             text-align: right; /* right-align text within the title background */
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-            margin-bottom: 0px; /* Space under the title background */
+            margin-bottom: 0px; /* Space under the footer background */
         }
         .footer-bar img {
             height: 40px; /* Adjust the height of the image */
@@ -86,38 +98,10 @@
             vertical-align: middle; /* Align image vertically with text */
             margin: 5px; /* Adjust margin around the image if needed */
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .title-background {
-                padding: 15px; /* Adjust padding for smaller screens */
-                width: calc(100% + 30px); /* Adjust width for smaller screens */
-                margin-left: -15px; /* Adjust left margin for smaller screens */
-                margin-right: -15px; /* Adjust right margin for smaller screens */
-                margin-bottom: 25px; /* Adjust space under the title background for smaller screens */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .title-background {
-                padding: 10px; /* Further reduce padding for very small screens */
-                width: calc(100% + 20px); /* Adjust width for very small screens */
-                margin-left: -10px; /* Adjust left margin for very small screens */
-                margin-right: -10px; /* Adjust right margin for very small screens */
-                margin-bottom: 20px; /* Further adjust space under the title background for very small screens */
-            }
-            .folder {
-                width: 100%; /* Make folders full width on very small screens */
-            }
-        }
     </style>
 </head>
 <body>
     <div class="dashboard">
-        <div class="title-background">
-            <img src="TP.png" alt="Title Bar Image">
-            <h1>IPTV Head-End Dashboard</h1>
-        </div>
         <div class="folders-container">
             <!-- Your folder elements here -->
         </div>
