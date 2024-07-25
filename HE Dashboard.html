@@ -7,42 +7,61 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
         }
         .dashboard {
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .folders-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allows wrapping to the next line if necessary */
-            gap: 20px; /* Space between folders */
+            flex-wrap: wrap;
+            gap: 20px;
         }
         .folder {
             width: 250px;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #e0e7ff;
             cursor: pointer;
-            text-align: left;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .folder:hover {
+            background-color: #d1d8ff;
+            transform: translateY(-5px);
         }
         .folder img {
             width: 50px;
             height: 50px;
-            vertical-align: middle;
+        }
+        .folder h2 {
+            margin: 10px 0 20px;
         }
         .folder ul {
             list-style-type: none;
             padding: 0;
-            display: none; /* Hide the list initially */
+            display: none;
         }
         .folder li {
             margin: 10px 0;
         }
-        h2 {
-            margin-top: 0;
+        .folder a {
+            text-decoration: none;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .folder a:hover {
+            color: #0056b3;
         }
     </style>
     <script>
@@ -73,7 +92,7 @@
                 </ul>
             </div>
             <div class="folder" onclick="toggleList('headEndListMivida')">
-               <img src="Mivida.png" alt="Mivida Folder Icon">
+                <img src="Mivida.png" alt="Mivida Folder Icon">
                 <h2>Mivida</h2>
                 <ul id="headEndListMivida">
                     <li><a href="http://10.72.42.150" target="_blank">FTA</a></li>
@@ -141,7 +160,7 @@
             <div class="folder" onclick="toggleList('headEndList90Avenue')">
                 <img src="90Avenue.png" alt="90 Avenue Folder Icon">
                 <h2>90 Avenue</h2>
-                               <ul id="headEndList90Avenue">
+                <ul id="headEndList90Avenue">
                     <li><a href="http://10.251.163.101" target="_blank">Headend-1</a></li>
                     <li><a href="http://10.251.163.102" target="_blank">Headend-2</a></li>
                     <li><a href="http://10.251.163.103" target="_blank">Headend-3</a></li>
@@ -160,10 +179,10 @@
                     <li><a href="http://10.251.13.114" target="_blank">Encoder-2</a></li>
                 </ul>
             </div>
-            <div class="folder" onclick="toggleList('headEndListKuadiko')">
-                <img src="Kuadiko.png" alt="Kuadiko Folder Icon">
+            <div class="folder" onclick="toggleList('headEndListkuadiko')">
+                <img src="kuadiko.png" alt="kuadiko Folder Icon">
                 <h2>kuadiko</h2>
-                <ul id="headEndListKuadiko">
+                <ul id="headEndListkuadiko">
                     <li><a href="http://10.184.125.101" target="_blank">Head-End 1</a></li>
                     <li><a href="http://10.184.125.102" target="_blank">Head-End 2</a></li>
                     <li><a href="http://10.184.125.103" target="_blank">Head-End 3</a></li>
