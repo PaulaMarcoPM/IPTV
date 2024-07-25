@@ -37,14 +37,22 @@
             box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
             margin-bottom: 30px; /* Space under the title background */
             position: relative; /* Position relative to place the image absolutely */
-            z-index: 1; /* Ensure it appears on top of other content */
+            overflow: hidden; /* Prevent overflow */
         }
 
         .title-background img {
-            height: 40px; /* Adjust the height of the image */
-            width: auto; /* Maintain aspect ratio */
-            vertical-align: middle; /* Align image vertically with text */
-            margin: 5px; /* Adjust margin around the image if needed */
+            position: absolute; /* Position the image absolutely */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: auto; /* Maintain natural width of the image */
+            height: 100%; /* Make image height match the title background */
+            z-index: -1; /* Place image behind text */
+            border-radius: 10px; /* Optional: Match the border radius */
+        }
+
+        .title-background h1 {
+            position: relative; /* Ensure the heading text is positioned above the image */
+            z-index: 1; /* Ensure text is above the image */
         }
 
         .folders-container {
