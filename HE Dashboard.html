@@ -20,30 +20,25 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-/*         .title-bar {
+        .title-bar {
             background-color: #01578C; /* Title bar background color */
             color: white; /* Title text color */
             padding: 20px; /* Padding around the title */
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative; /* To position the image */
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
             margin-bottom: 30px; /* Space below the title bar */
             overflow: hidden; /* Ensure image doesn't overflow */
-        } */
+            position: relative;
+        }
         .title-bar img {
-            position: absolute; /* Position image absolutely */
-            top: 0;
-            left: 0;
             width: 100px; /* Adjust width of the image */
             height: auto; /* Maintain aspect ratio */
-            z-index: -1; /* Place image behind text */
-            opacity: 0.5; /* Optional: Add some transparency to see text better */
+            margin-right: 20px; /* Space between image and text */
         }
         .title-bar h1 {
             margin: 0; /* Remove default margin */
-            z-index: 1; /* Ensure text is above the image */
         }
         .folders-container {
             display: flex;
