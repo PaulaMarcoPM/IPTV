@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,46 +13,42 @@
         }
         .dashboard {
             max-width: 1200px;
-            margin: 0px;
+            margin: 0 auto;
             text-align: center;
             padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative; /* Ensure relative positioning for alignment adjustments */
-            overflow: hidden; /* Prevent overflow */
-            z-index: 0; /* Ensure it is beneath the title background */
+            position: relative;
+            overflow: hidden;
         }
         .title-background {
-    background-color: #01578C;
-    color: white; /* Adjust text color for contrast */
-    padding: 20px; /* Adjust padding */
-    border-radius: 15px;
-    display: inline-block;
-    width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
-    max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
-    margin-left: -20px; /* Shift background to the left to remove right space */
-    margin-right: -20px; /* Optionally shift background to the right as needed */
-    margin-top: -20px; /* Remove space at the top */
-    text-align: center; /* Center-align text within the title background */
-    box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-    margin-bottom: 30px; /* Space under the title background */
-    position: relative; /* Position relative to place the image absolutely */
-    overflow: hidden; /* Prevent overflow */
-}
+            background-color: #01578C;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
         .title-background img {
-            position: absolute; /* Position the image absolutely */
-            top: 0; /* Align to the top */
-            left: 0; /* Align to the left */
-            width: auto; /* Maintain natural width of the image */
-            height: 100%; /* Make image height match the title background */
-            z-index: -1; /* Place image behind text */
-            border-radius: 10px; /* Optional: Match the border radius */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            height: 100%;
+            z-index: -1;
+            border-radius: 10px;
         }
 
         .title-background h1 {
-            position: relative; /* Ensure the heading text is positioned above the image */
-            z-index: 1; /* Ensure text is above the image */
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-size: 2em;
         }
 
         .folders-container {
@@ -83,10 +78,10 @@
         }
 
         .footer-bar img {
-            height: 40px; /* Adjust the height of the image */
-            width: auto; /* Maintain aspect ratio */
-            vertical-align: middle; /* Align image vertically with text */
-            margin: 5px; /* Adjust margin around the image if needed */
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
+            margin: 5px;
         }
         .folder h2 {
             margin: 10px 0 20px;
@@ -111,41 +106,48 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .title-background {
-                padding: -20px; /* Adjust padding for smaller screens */
-                width: calc(100% + 30px); /* Adjust width for smaller screens */
-                margin-left: -30px; /* Adjust left margin for smaller screens */
-                margin-right: -30px; /* Adjust right margin for smaller screens */
-                margin-bottom: 25px; /* Adjust space under the title background for smaller screens */
+                padding: 15px;
+                margin-bottom: 25px;
+            }
+
+            .title-background h1 {
+                font-size: 1.8em;
+            }
+
+            .folders-container {
+                gap: 15px;
             }
         }
 
         @media (max-width: 480px) {
             .title-background {
-                padding: -20px; /* Further reduce padding for very small screens */
-                width: calc(100% + 20px); /* Adjust width for very small screens */
-                margin-left: -30px; /* Adjust left margin for very small screens */
-                margin-right: -30px; /* Adjust right margin for very small screens */
-                margin-bottom: 20px; /* Further adjust space under the title background for very small screens */
+                padding: 10px;
+                margin-bottom: 20px;
             }
+
+            .title-background h1 {
+                font-size: 1.5em;
+            }
+
             .folder {
-                width: 100%; /* Make folders full width on very small screens */
+                width: 100%;
+                padding: 15px;
             }
         }
 
         .footer-bar {
-            background-color: #01578C; /* Title background color */
-            color: white; /* Adjust text color for contrast */
-            padding: 0px; /* Adjust padding */
+            background-color: #01578C;
+            color: white;
+            padding: 10px;
             border-radius: 10px;
-            display: inline-block;
-            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
-            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
-            margin-left: -20px; /* Shift background to the left to remove right space */
-            margin-right: -20px; /* Optionally shift background to the right as needed */
-            text-align: right; /* right-align text within the title background */
-            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
-            margin-bottom: -20px; /* Space under the title background */
+            width: 100%;
+            text-align: right;
+            box-sizing: border-box;
+            margin-top: 30px;
         }
+   
+
+
     </style>
     <script>
         function toggleList(listId) {
