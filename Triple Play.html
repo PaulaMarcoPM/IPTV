@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triple Play</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triple Play</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
+            margin: 0; /* Removed body margin for proper spacing */
+            padding: 0; /* Removed body padding for proper spacing */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -19,34 +25,39 @@
             background-color: #01578C;
             color: white;
             padding: 10px;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 20px; /* Space below the header */
+			margin: 10px;
+            margin-top: 10px; /* Space above the header */
+            margin-bottom: 10px; /* Space below the header */
         }
 
         .footer {
             background-color: #01578C;
             color: white;
             padding: 10px;
-            border-radius: 15px;
-            text-align: right; /* Align footer content to the right */
+            border-radius: 10px;
+            text-align: right;
+			margin: 10px;
             margin-top: auto; /* Push footer to the bottom */
+            margin-bottom: 10px; /* Space below the footer */
         }
 
         .footer img {
             height: 40px; /* Adjust the height of the image */
             width: auto; /* Maintain aspect ratio */
             vertical-align: middle; /* Align image vertically with text */
+            margin: 0; /* No extra margin around the image */
         }
 
         .container {
             text-align: center;
             flex: 1;
-            padding: 150px; /* Adjust padding for better responsiveness */
+            padding: 150px; /* Adjusted padding for better layout */
         }
 
         .link {
-            font-size: 1.5em; /* Use relative units */
+            font-size: 1.5em; /* Adjusted font size for better readability */
             color: #01578C;
             text-decoration: none;
             font-weight: bold;
@@ -55,7 +66,7 @@
             border-radius: 10px;
             transition: background-color 0.3s, color 0.3s;
             display: inline-block; /* Ensure padding/margin affects only the link */
-            margin-bottom: 10px; /* Adjust the space below each link */
+            margin-bottom: 10px; /* Space below each link */
         }
 
         .link:hover {
