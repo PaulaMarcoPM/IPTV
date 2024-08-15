@@ -3,151 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPTV Head-End Dashboard</title>
+    <title>Triple Play</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
             margin: 0;
-            padding: 10px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-        .dashboard {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        .title-background {
+
+        .header {
             background-color: #01578C;
             color: white;
             padding: 20px;
-            border-radius: 15px;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-        .title-background img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: auto;
-            height: 100%;
-            z-index: -1;
             border-radius: 10px;
-        }
-
-        .title-background h1 {
-            position: relative;
-            z-index: 1;
-            margin: 0;
-            font-size: 2em;
-        }
-
-        .folders-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .folder {
-            width: 250px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #e0e7ff;
-            cursor: pointer;
             text-align: center;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .folder:hover {
-            background-color: #d1d8ff;
-            transform: translateY(-5px);
-        }
-        .folder img {
-            width: 100px;
-            height: 100px;
-            border-radius: 20px;
+            margin: 20px 0; /* Space above and below the header */
         }
 
-        .footer-bar img {
-            height: 40px;
-            width: auto;
-            vertical-align: middle;
-            margin: 5px;
+        .footer {
+            background-color: #01578C;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: right;
+            margin-top: auto; /* Push footer to the bottom */
+            margin-bottom: 20px; /* Space below the footer */
         }
-        .folder h2 {
-            margin: 10px 0 20px;
+
+        .footer img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+            margin: 0; /* No extra margin around the image */
         }
-        .folder ul {
-            list-style-type: none;
-            padding: 0;
-            display: none;
+
+        .container {
+            text-align: center;
+            flex: 1;
+            padding: 20px; /* Adjusted padding for better layout */
         }
-        .folder li {
-            margin: 10px 0;
-        }
-        .folder a {
+
+        .link {
+            font-size: 1.5em; /* Adjusted font size for better readability */
+            color: #01578C;
             text-decoration: none;
-            color: #007bff;
-            transition: color 0.3s;
-        }
-        .folder a:hover {
-            color: #0056b3;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #01578C;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block; /* Ensure padding/margin affects only the link */
+            margin-bottom: 10px; /* Space below each link */
         }
 
-        /* Responsive Design */
+        .link:hover {
+            background-color: #01578C;
+            color: white;
+        }
+
+        /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
-            .title-background {
+            .header {
                 padding: 15px;
-                margin-bottom: 25px;
+                margin: 15px 0;
             }
 
-            .title-background h1 {
+            .header h1 {
                 font-size: 1.8em;
-            }
-
-            .folders-container {
-                gap: 15px;
             }
         }
 
         @media (max-width: 480px) {
-            .title-background {
+            .header {
                 padding: 10px;
-                margin-bottom: 20px;
+                margin: 10px 0;
             }
 
-            .title-background h1 {
+            .header h1 {
                 font-size: 1.5em;
             }
-
-            .folder {
-                width: 100%;
-                padding: 15px;
-            }
         }
-
-        .footer-bar {
-            background-color: #01578C;
-            color: white;
-            padding: 10px;
-            border-radius: 10px;
-            width: 100%;
-            text-align: right;
-            box-sizing: border-box;
-            margin-top: 30px;
-        }
-   
-
-
     </style>
     <script>
         function toggleList(listId) {
