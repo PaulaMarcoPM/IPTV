@@ -1,91 +1,150 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triple Play</title>
+    <title>IPTV Head-End Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .header {
-            background-color: #01578C;
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 20px 0; /* Space above and below the header */
-        }
-
-        .footer {
-            background-color: #01578C;
-            color: white;
             padding: 10px;
+        }
+        .dashboard {
+            max-width: 1200px;
+            margin: 0px;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
             border-radius: 10px;
-            text-align: right;
-            margin-top: auto; /* Push footer to the bottom */
-            margin-bottom: 20px; /* Space below the footer */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* Ensure relative positioning for alignment adjustments */
+            overflow: hidden; /* Prevent overflow */
+            z-index: 0; /* Ensure it is beneath the title background */
+        }
+        .title-background {
+    background-color: #01578C;
+    color: white; /* Adjust text color for contrast */
+    padding: 20px; /* Adjust padding */
+    border-radius: 15px;
+    display: inline-block;
+    width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+    max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+    margin-left: -20px; /* Shift background to the left to remove right space */
+    margin-right: -20px; /* Optionally shift background to the right as needed */
+    margin-top: -20px; /* Remove space at the top */
+    text-align: center; /* Center-align text within the title background */
+    box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+    margin-bottom: 30px; /* Space under the title background */
+    position: relative; /* Position relative to place the image absolutely */
+    overflow: hidden; /* Prevent overflow */
+}
+        .title-background img {
+            position: absolute; /* Position the image absolutely */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            width: auto; /* Maintain natural width of the image */
+            height: 100%; /* Make image height match the title background */
+            z-index: -1; /* Place image behind text */
+            border-radius: 10px; /* Optional: Match the border radius */
         }
 
-        .footer img {
+        .title-background h1 {
+            position: relative; /* Ensure the heading text is positioned above the image */
+            z-index: 1; /* Ensure text is above the image */
+        }
+
+        .folders-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .folder {
+            width: 250px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #e0e7ff;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .folder:hover {
+            background-color: #d1d8ff;
+            transform: translateY(-5px);
+        }
+        .folder img {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+        }
+
+        .footer-bar img {
             height: 40px; /* Adjust the height of the image */
             width: auto; /* Maintain aspect ratio */
             vertical-align: middle; /* Align image vertically with text */
-            margin: 0; /* No extra margin around the image */
+            margin: 5px; /* Adjust margin around the image if needed */
         }
-
-        .container {
-            text-align: center;
-            flex: 1;
-            padding: 20px; /* Adjusted padding for better layout */
+        .folder h2 {
+            margin: 10px 0 20px;
         }
-
-        .link {
-            font-size: 1.5em; /* Adjusted font size for better readability */
-            color: #01578C;
+        .folder ul {
+            list-style-type: none;
+            padding: 0;
+            display: none;
+        }
+        .folder li {
+            margin: 10px 0;
+        }
+        .folder a {
             text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border: 2px solid #01578C;
-            border-radius: 10px;
-            transition: background-color 0.3s, color 0.3s;
-            display: inline-block; /* Ensure padding/margin affects only the link */
-            margin-bottom: 10px; /* Space below each link */
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .folder a:hover {
+            color: #0056b3;
         }
 
-        .link:hover {
-            background-color: #01578C;
-            color: white;
-        }
-
-        /* Media Queries for Responsive Design */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .header {
-                padding: 15px;
-                margin: 15px 0;
-            }
-
-            .header h1 {
-                font-size: 1.8em;
+            .title-background {
+                padding: 15px; /* Adjust padding for smaller screens */
+                width: calc(100% + 30px); /* Adjust width for smaller screens */
+                margin-left: -15px; /* Adjust left margin for smaller screens */
+                margin-right: -15px; /* Adjust right margin for smaller screens */
+                margin-bottom: 25px; /* Adjust space under the title background for smaller screens */
             }
         }
 
         @media (max-width: 480px) {
-            .header {
-                padding: 10px;
-                margin: 10px 0;
+            .title-background {
+                padding: 10px; /* Further reduce padding for very small screens */
+                width: calc(100% + 20px); /* Adjust width for very small screens */
+                margin-left: -10px; /* Adjust left margin for very small screens */
+                margin-right: -10px; /* Adjust right margin for very small screens */
+                margin-bottom: 20px; /* Further adjust space under the title background for very small screens */
             }
+            .folder {
+                width: 100%; /* Make folders full width on very small screens */
+            }
+        }
 
-            .header h1 {
-                font-size: 1.5em;
-            }
+        .footer-bar {
+            background-color: #01578C; /* Title background color */
+            color: white; /* Adjust text color for contrast */
+            padding: 0px; /* Adjust padding */
+            border-radius: 10px;
+            display: inline-block;
+            width: calc(100% + 40px); /* Extend background width to compensate for margin adjustments */
+            max-width: calc(100% + 40px); /* Ensure maximum width is also extended */
+            margin-left: -20px; /* Shift background to the left to remove right space */
+            margin-right: -20px; /* Optionally shift background to the right as needed */
+            text-align: right; /* right-align text within the title background */
+            box-sizing: border-box; /* Ensure padding and border are included in the width calculation */
+            margin-bottom: -20px; /* Space under the title background */
         }
     </style>
     <script>
