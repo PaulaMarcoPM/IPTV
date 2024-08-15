@@ -4,62 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triple Play</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f0f2f5;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    .header, .footer {
-        background-color: #01578C;
-        color: white;
-        padding: 10px;
-        border-radius: 10px;
-        text-align: center;
-        margin: 0;
-    }
+        .header, .footer {
+            background-color: #01578C;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-    .footer {
-        text-align: right;
-        padding: 10px;
-    }
+        .footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: auto; /* Push footer to the bottom */
+        }
 
-    .footer img {
-        height: 40px; /* Adjust the height of the image */
-        width: auto; /* Maintain aspect ratio */
-        vertical-align: middle; /* Align image vertically with text */
-        margin: 0px; /* Adjust margin around the image if needed */
-    }
+        .footer img {
+            height: 40px; /* Adjust the height of the image */
+            width: auto; /* Maintain aspect ratio */
+            vertical-align: middle; /* Align image vertically with text */
+        }
 
-    .container {
-        text-align: center;
-        flex: 1;
-        padding: 170px;
-    }
+        .container {
+            text-align: center;
+            flex: 1;
+            padding: 20px; /* Adjust padding for better responsiveness */
+        }
 
-    .link {
-        font-size: 24px;
-        color: #01578C;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 10px 20px;
-        border: 2px solid #01578C;
-        border-radius: 10px;
-        transition: background-color 0.3s, color 0.3s;
-        display: inline-block; /* Ensure padding/margin affects only the link */
-        margin-bottom: 10px; /* Adjust the space below each link */
-    }
+        .link {
+            font-size: 1.5em; /* Use relative units */
+            color: #01578C;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid #01578C;
+            border-radius: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            display: inline-block; /* Ensure padding/margin affects only the link */
+            margin-bottom: 10px; /* Adjust the space below each link */
+        }
 
-    .link:hover {
-        background-color: #01578C;
-        color: white;
-    }
-</style>
+        .link:hover {
+            background-color: #01578C;
+            color: white;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            .link {
+                font-size: 1.2em; /* Smaller font size for mobile devices */
+                padding: 8px 16px;
+            }
+
+            .footer img {
+                height: 30px; /* Adjust image size for smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="header">
