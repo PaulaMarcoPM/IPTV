@@ -4,18 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triple Play</title>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Triple Play</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
-            margin: 0; /* Removed body margin for proper spacing */
-            padding: 0; /* Removed body padding for proper spacing */
+            margin: 0;
+            padding: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -27,9 +21,9 @@
             padding: 10px;
             border-radius: 10px;
             text-align: center;
-			margin: 10px;
-            margin-top: 10px; /* Space above the header */
-            margin-bottom: 10px; /* Space below the header */
+            margin: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
 
         .footer {
@@ -38,26 +32,26 @@
             padding: 10px;
             border-radius: 10px;
             text-align: right;
-			margin: 10px;
-            margin-top: auto; /* Push footer to the bottom */
-            margin-bottom: 10px; /* Space below the footer */
+            margin: 10px;
+            margin-top: auto;
+            margin-bottom: 10px;
         }
 
         .footer img {
-            height: 40px; /* Adjust the height of the image */
-            width: auto; /* Maintain aspect ratio */
-            vertical-align: middle; /* Align image vertically with text */
-            margin: 0; /* No extra margin around the image */
+            height: 40px;
+            width: auto;
+            vertical-align: middle;
+            margin: 0;
         }
 
         .container {
             text-align: center;
             flex: 1;
-            padding: 150px; /* Adjusted padding for better layout */
+            padding: 150px;
         }
 
         .link {
-            font-size: 1.5em; /* Adjusted font size for better readability */
+            font-size: 1.5em;
             color: #01578C;
             text-decoration: none;
             font-weight: bold;
@@ -65,8 +59,8 @@
             border: 2px solid #01578C;
             border-radius: 10px;
             transition: background-color 0.3s, color 0.3s;
-            display: inline-block; /* Ensure padding/margin affects only the link */
-            margin-bottom: 10px; /* Space below each link */
+            display: inline-block;
+            margin-bottom: 10px;
         }
 
         .link:hover {
@@ -74,22 +68,41 @@
             color: white;
         }
 
-        /* Media Queries for Responsive Design */
         @media (max-width: 600px) {
             .container {
                 padding: 10px;
             }
 
             .link {
-                font-size: 1.2em; /* Smaller font size for mobile devices */
+                font-size: 1.2em;
                 padding: 8px 16px;
             }
 
             .footer img {
-                height: 30px; /* Adjust image size for smaller screens */
+                height: 30px;
             }
         }
     </style>
+
+    <script type="text/javascript">
+        function checkPassword() {
+            var password = document.getElementById("password").value;
+            if (password == "Orange@link123") {  // Replace "game123" with your password
+                document.getElementById("protectedContent").style.display = "block";
+                document.getElementById("passwordForm").style.display = "none";
+            } else {
+                alert("Incorrect password");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="passwordForm" style="text-align: center; padding-top: 50px;">
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+    <div id="protectedContent" style="display:none;">
 </head>
 <body>
     <div class="header">
